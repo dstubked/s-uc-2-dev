@@ -13,7 +13,7 @@ node {
         app = docker.build("dstubked/orders-nginx:${env.BUILD_NUMBER}")
     }
     stage('Test Image') {
-        sh "docker images | grep orders"
+        sh "docker images | grep dstubked/orders-nginx"
     }
     
     /*stage ('Aqua Scan') {
