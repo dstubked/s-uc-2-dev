@@ -16,11 +16,6 @@ node {
         sh "docker images | grep dstubked/orders-nginx"
     }
     
-    /*stage ('Aqua Scan') {
-        aqua customFlags: '--layer-vulnerabilities', hideBase: false, hostedImage: '', localImage: 'dstubked-docker.jfrog.io/orders-nginx-dev:good', locationType: 'local', notCompliesCmd: '', onDisallowed: 'fail', policies: '', register: true, registry: 'JFrog', showNegligible: false
-    }*/
-    
-    
     stage('Push Image into Registry') {
         /* Finally, we'll push the image into the Dev namespace */
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
